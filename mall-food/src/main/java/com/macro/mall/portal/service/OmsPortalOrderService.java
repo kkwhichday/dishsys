@@ -1,0 +1,60 @@
+package com.macro.mall.portal.service;
+
+import com.github.pagehelper.PageHelper;
+import com.macro.mall.model.OmsOrder;
+import com.macro.mall.portal.domain.*;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+/**
+ * 前台订单管理Service
+ * Created by macro on 2018/8/30.
+ */
+public interface OmsPortalOrderService {
+
+
+
+    List<OmsMemberOrder> listOrder(Integer pageSize, Integer pageNum);
+
+
+    /**
+     * 根据用户购物车信息生成确认单信息
+     */
+    ConfirmOrderResult generateConfirmOrder();
+
+    /**
+     * 根据提交信息生成订单
+     */
+    @Transactional
+    CommonResult generateOrder(OrderParam orderParam);
+
+    /**
+     * 根据前台提供的购物车信息生成订单
+     */
+    @Transactional
+    CommonResult generateAllOrder(OrderCartParam orderCartParam);
+
+    /**
+     * 支付成功后的回调
+     */
+    @Transactional
+    public CommonResult paySuccess(String orderSN);
+
+    /**
+     * 自动取消超时订单
+     */
+    @Transactional
+    CommonResult cancelTimeOutOrder();
+
+    /**
+     * 取消单个超时订单
+     */
+    @Transactional
+    void cancelOrder(Long orderId);
+
+    /**
+     * 发送延迟消息取消订单
+     */
+    void sendDelayMessageCancelOrder(Long orderId);
+}
