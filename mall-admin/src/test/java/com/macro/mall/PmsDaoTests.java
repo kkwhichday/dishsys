@@ -29,6 +29,15 @@ public class PmsDaoTests {
     @Autowired
     private PmsProductDao productDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsDaoTests.class);
+
+    @Autowired
+    private OmsOrderDao omsOrderDao;
+
+    @Test
+    public void sumByItem(){
+        omsOrderDao.
+    }
+
     @Test
     @Transactional
     @Rollback
