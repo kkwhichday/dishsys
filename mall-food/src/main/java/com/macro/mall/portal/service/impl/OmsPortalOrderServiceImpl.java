@@ -466,6 +466,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
             return new CommonResult().failed("支付回调回写状态失败,没有查到单号");
         }
         order.setStatus(1);
+        order.setPayType(2);
         order.setPaymentTime(new Date());
         orderMapper.updateByPrimaryKeySelective(order);
         //恢复所有下单商品的锁定库存，扣减真实库存

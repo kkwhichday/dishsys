@@ -3,6 +3,7 @@ package com.macro.mall.dao;
 import com.macro.mall.dto.OmsOrderDeliveryParam;
 import com.macro.mall.dto.OmsOrderDetail;
 import com.macro.mall.dto.OmsOrderQueryParam;
+import com.macro.mall.dto.SumByItemResult;
 import com.macro.mall.model.OmsOrder;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,6 +18,12 @@ public interface OmsOrderDao {
      * 条件查询订单
      */
     List<OmsOrder> getList(@Param("queryParam") OmsOrderQueryParam queryParam);
+
+    /**
+     *
+     * 按照产品汇总前提一天的订单
+     */
+    List<SumByItemResult> listSumByItem(Long umsShopId);
 
     /**
      * 批量发货

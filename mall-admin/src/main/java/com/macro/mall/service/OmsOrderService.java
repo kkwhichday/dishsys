@@ -16,6 +16,8 @@ public interface OmsOrderService {
      */
     List<OmsOrder> list(OmsOrderQueryParam queryParam, Integer pageSize, Integer pageNum);
 
+    List<SumByItemResult> listSumByItem(Long umsShopId);
+
     /**
      * 批量发货
      */

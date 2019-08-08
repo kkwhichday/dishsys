@@ -24,7 +24,7 @@ public class RunTests {
 
     @Test
     public void contextLoads() {
-        Proxy.newProxyInstance()
+
         System.out.println(kk);
 //        PageHelper.startPage(1, 5);
         List<OmsMemberOrder> list = portalOrderDao.getDetailsBymember(1l,5,2);

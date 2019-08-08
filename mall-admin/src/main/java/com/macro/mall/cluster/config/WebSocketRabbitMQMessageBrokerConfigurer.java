@@ -26,6 +26,7 @@ import org.springframework.web.socket.config.annotation.WebSocketTransportRegist
 
 @Configuration
 // 此注解开使用STOMP协议来传输基于消息代理的消息，此时可以在@Controller类中使用@MessageMapping
+//使用stomp还需要在rabbitmq中安装stomp插件rabbitmq_stomp
 @EnableWebSocketMessageBroker
 public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketMessageBrokerConfigurer {
 
@@ -37,7 +38,16 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
     @Autowired
     private AuthWebSocketHandlerDecoratorFactory myWebSocketHandlerDecoratorFactory;
 
-
+    @Value("${spring.rabbitmq.host}")
+    private String host;
+    @Value("${spring.rabbitmq.virtual-host}")
+    private String vhost;
+    @Value("${spring.rabbitmq.port}")
+    private String port;
+    @Value("${spring.rabbitmq.username}")
+    private String username;
+    @Value("${spring.rabbitmq.password}")
+    private String password;
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
@@ -67,13 +77,13 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
                 // "STOMP broker relay"处理所有消息将消息发送到外部的消息代理
                 .enableStompBrokerRelay("/exchange","/topic","/queue","/amq/queue")
 
-                .setVirtualHost("/")
-                .setRelayHost("127.0.0.1")
+                .setVirtualHost(vhost)
+                .setRelayHost(host)
 
-                .setClientLogin("kkrabbit")
-                .setClientPasscode("kkrabbit")
-                .setSystemLogin("kkrabbit")
-                .setSystemPasscode("kkrabbit")
+                .setClientLogin(username)
+                .setClientPasscode(password)
+                .setSystemLogin(username)
+                .setSystemPasscode(password)
                 .setSystemHeartbeatSendInterval(5000)
                 .setSystemHeartbeatReceiveInterval(4000);
     }

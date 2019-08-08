@@ -39,6 +39,12 @@ public class OmsOrderServiceImpl implements OmsOrderService {
     }
 
     @Override
+    public List<SumByItemResult> listSumByItem(Long umsShopId) {
+        return orderDao.listSumByItem(umsShopId);
+    }
+
+
+    @Override
     public int delivery(List<OmsOrderDeliveryParam> deliveryParamList) {
         //批量发货
         int count = orderDao.delivery(deliveryParamList);

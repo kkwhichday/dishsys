@@ -1,9 +1,11 @@
 package com.macro.mall;
 
 
+import com.macro.mall.dao.OmsOrderDao;
 import com.macro.mall.dao.PmsMemberPriceDao;
 import com.macro.mall.dao.PmsProductDao;
 import com.macro.mall.dto.PmsProductResult;
+import com.macro.mall.dto.SumByItemResult;
 import com.macro.mall.model.PmsMemberPrice;
 import com.macro.mall.util.JsonUtil;
 import org.junit.Assert;
@@ -35,7 +37,8 @@ public class PmsDaoTests {
 
     @Test
     public void sumByItem(){
-        omsOrderDao.
+        List<SumByItemResult> sumByItemResults =omsOrderDao.listSumByItem(1L);
+        System.out.println(sumByItemResults);
     }
 
     @Test

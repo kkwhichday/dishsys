@@ -3,6 +3,7 @@ package com.macro.mall.controller;
 import com.macro.mall.dto.*;
 import com.macro.mall.model.OmsOrder;
 import com.macro.mall.service.OmsOrderService;
+import com.macro.mall.service.UmsAdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ import java.util.List;
 public class OmsOrderController {
     @Autowired
     private OmsOrderService orderService;
+    @Autowired
+    private UmsAdminService umsAdminService;
 
     @ApiOperation("查询订单")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -28,18 +31,18 @@ public class OmsOrderController {
     public Object list(OmsOrderQueryParam queryParam,
                        @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                        @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+
         List<OmsOrder> orderList = orderService.list(queryParam, pageSize, pageNum);
         return new CommonResult().pageSuccess(orderList);
     }
 
-    @ApiOperation("查询当天汇总订单")
+    @ApiOperation("查询前一天预定的订单套餐数量")
     @RequestMapping(value = "/listSumByItem", method = RequestMethod.GET)
     @ResponseBody
-    public Object listSumByItem(OmsOrderQueryParam queryParam,
-                       @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                       @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        List<OmsOrder> orderList = orderService.list(queryParam, pageSize, pageNum);
-        return new CommonResult().pageSuccess(orderList);
+    public Object listSumByItem() {
+        Long umsShopid =umsAdminService.getCurrentUmsAdmin().getShopId();
+        List<SumByItemResult> sumByItemResults = orderService.listSumByItem(umsShopid);
+        return new CommonResult().pageSuccess(sumByItemResults);
     }
 
     @ApiOperation("批量发货")
