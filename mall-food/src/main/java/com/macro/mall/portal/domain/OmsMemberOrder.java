@@ -11,6 +11,8 @@ public class OmsMemberOrder extends OmsOrder {
 
     private String umsShopUrl;
     private String umsShopName;
+    private Integer umsShopOpen;
+    private String umsShopInfo;
 
     private List<OmsOrderItem> orderItemList;
 }

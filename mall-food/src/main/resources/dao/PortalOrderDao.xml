@@ -11,6 +11,8 @@
                extends="com.macro.mall.mapper.OmsOrderMapper.BaseResultMap">
         <result column="umsShopName" jdbcType="VARCHAR" property="umsShopName" />
         <result column="umsShopUrl" jdbcType="VARCHAR" property="umsShopUrl" />
+        <result column="umsShopOpen" jdbcType="INTEGER" property="umsShopOpen" />
+        <result column="umsShopInfo" jdbcType="VARCHAR" property="umsShopInfo" />
         <collection property="orderItemList" columnPrefix="ot_"
                     resultMap="com.macro.mall.mapper.OmsOrderItemMapper.BaseResultMap">
         </collection>
@@ -19,6 +21,8 @@
     <select id="getDetailsBymember" resultMap="orderMemberMap">
 select
 o.*,
+            us.open umsShopOpen,
+            us.info umsShopInfo,
             us.name umsShopName,
             us.pic umsShopUrl,
             ot.id ot_id,

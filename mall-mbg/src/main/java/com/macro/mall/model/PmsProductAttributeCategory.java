@@ -10,14 +10,14 @@ public class PmsProductAttributeCategory implements Serializable {
     /**
      * 属性数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer attributeCount;
 
     /**
      * 参数数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer paramCount;
 

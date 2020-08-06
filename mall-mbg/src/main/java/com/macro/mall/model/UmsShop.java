@@ -11,42 +11,49 @@ public class UmsShop implements Serializable {
     /**
      * 头像
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String pic;
 
     /**
      * 店铺介绍
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String info;
 
     /**
      * 店铺公告
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String notice;
 
     /**
      * 邮箱
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String email;
 
     /**
+     * 店铺是否开业：0->停业；1->开业
+     *
+     * @mbg.generated
+     */
+    private Integer open;
+
+    /**
      * 创建时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 
     /**
      * 店铺状态：0->禁用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
@@ -100,6 +107,14 @@ public class UmsShop implements Serializable {
         this.email = email;
     }
 
+    public Integer getOpen() {
+        return open;
+    }
+
+    public void setOpen(Integer open) {
+        this.open = open;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -128,6 +143,7 @@ public class UmsShop implements Serializable {
         sb.append(", info=").append(info);
         sb.append(", notice=").append(notice);
         sb.append(", email=").append(email);
+        sb.append(", open=").append(open);
         sb.append(", createTime=").append(createTime);
         sb.append(", status=").append(status);
         sb.append(", serialVersionUID=").append(serialVersionUID);

@@ -9,7 +9,7 @@ public class OmsOrderReturnReason implements Serializable {
     /**
      * 退货类型
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String name;
 
@@ -18,14 +18,14 @@ public class OmsOrderReturnReason implements Serializable {
     /**
      * 状态：0->不启用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 添加时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 

@@ -22,56 +22,56 @@ public class PmsProduct implements Serializable {
     /**
      * 货号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productSn;
 
     /**
      * 删除状态：0->未删除；1->已删除
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer deleteStatus;
 
     /**
      * 上架状态：0->下架；1->上架
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer publishStatus;
 
     /**
      * 新品状态:0->不是新品；1->新品
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer newStatus;
 
     /**
      * 推荐状态；0->不推荐；1->推荐
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer recommandStatus;
 
     /**
      * 审核状态：0->未审核；1->审核通过
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer verifyStatus;
 
     /**
      * 排序
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sort;
 
     /**
      * 销量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sale;
 
@@ -80,84 +80,84 @@ public class PmsProduct implements Serializable {
     /**
      * 促销价格
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal promotionPrice;
 
     /**
      * 赠送的成长值
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer giftGrowth;
 
     /**
      * 赠送的积分
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer giftPoint;
 
     /**
      * 限制使用的积分数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer usePointLimit;
 
     /**
      * 副标题
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String subTitle;
 
     /**
      * 市场价
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal originalPrice;
 
     /**
      * 库存
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer stock;
 
     /**
      * 库存预警值
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer lowStock;
 
     /**
      * 单位
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String unit;
 
     /**
      * 商品重量，默认为克
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal weight;
 
     /**
      * 是否为预告商品：0->不是；1->是
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer previewStatus;
 
     /**
      * 以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String serviceIds;
 
@@ -168,7 +168,7 @@ public class PmsProduct implements Serializable {
     /**
      * 画册图片，连产品图片限制为5张，以逗号分割
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String albumPics;
 
@@ -177,56 +177,56 @@ public class PmsProduct implements Serializable {
     /**
      * 促销开始时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date promotionStartTime;
 
     /**
      * 促销结束时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date promotionEndTime;
 
     /**
      * 活动限购数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer promotionPerLimit;
 
     /**
      * 促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer promotionType;
 
     /**
      * 品牌名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String brandName;
 
     /**
      * 商品分类名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productCategoryName;
 
     /**
      * 店铺账号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long umsShopId;
 
     /**
      * 商品描述
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String description;
 
@@ -235,14 +235,14 @@ public class PmsProduct implements Serializable {
     /**
      * 产品详情网页内容
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String detailHtml;
 
     /**
      * 移动端网页详情
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String detailMobileHtml;
 

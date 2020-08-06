@@ -12,7 +12,7 @@ public class PmsProductAttributeValue implements Serializable {
     /**
      * 手动添加规格或参数的值，参数单值，规格有多个时以逗号隔开
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String value;
 

@@ -11,28 +11,28 @@ public class SmsFlashPromotion implements Serializable {
     /**
      * 开始日期
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date startDate;
 
     /**
      * 结束日期
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date endDate;
 
     /**
      * 上下线状态
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 秒杀时间段名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 

@@ -10,7 +10,7 @@ public class UmsMemberReceiveAddress implements Serializable {
     /**
      * 收货人名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String name;
 
@@ -19,42 +19,42 @@ public class UmsMemberReceiveAddress implements Serializable {
     /**
      * 是否为默认
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer defaultStatus;
 
     /**
      * 邮政编码
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String postCode;
 
     /**
      * 省份/直辖市
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String province;
 
     /**
      * 城市
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String city;
 
     /**
      * 区
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String region;
 
     /**
      * 详细地址(街道)
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String detailAddress;
 

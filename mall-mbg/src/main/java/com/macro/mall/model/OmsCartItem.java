@@ -16,98 +16,98 @@ public class OmsCartItem implements Serializable {
     /**
      * 购买数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer quantity;
 
     /**
      * 添加到购物车的价格
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal price;
 
     /**
      * 销售属性1
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String sp1;
 
     /**
      * 销售属性2
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String sp2;
 
     /**
      * 销售属性3
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String sp3;
 
     /**
      * 商品主图
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productPic;
 
     /**
      * 商品名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productName;
 
     /**
      * 商品副标题（卖点）
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productSubTitle;
 
     /**
      * 商品sku条码
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productSkuCode;
 
     /**
      * 会员昵称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String memberNickname;
 
     /**
      * 创建时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createDate;
 
     /**
      * 修改时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date modifyDate;
 
     /**
      * 是否删除
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer deleteStatus;
 
     /**
      * 商品分类
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long productCategoryId;
 
@@ -118,14 +118,14 @@ public class OmsCartItem implements Serializable {
     /**
      * 商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productAttr;
 
     /**
      * 店铺账号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long umsShopId;
 

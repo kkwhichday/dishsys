@@ -10,14 +10,14 @@ public class CmsSubjectCategory implements Serializable {
     /**
      * 分类图标
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String icon;
 
     /**
      * 专题数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer subjectCount;
 

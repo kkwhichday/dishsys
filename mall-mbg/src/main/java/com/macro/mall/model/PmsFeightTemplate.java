@@ -11,21 +11,21 @@ public class PmsFeightTemplate implements Serializable {
     /**
      * 计费类型:0->按重量；1->按件数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer chargeType;
 
     /**
      * 首重kg
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal firstWeight;
 
     /**
      * 首费（元）
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal firstFee;
 
@@ -36,7 +36,7 @@ public class PmsFeightTemplate implements Serializable {
     /**
      * 目的地（省、市）
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String dest;
 

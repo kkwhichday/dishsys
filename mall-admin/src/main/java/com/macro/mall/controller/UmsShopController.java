@@ -27,7 +27,7 @@ public class UmsShopController {
     @Autowired
     private UmsShopService umsShopService;
 
-    @ApiOperation(value = "获取全部品牌列表")
+    @ApiOperation(value = "获取全部店铺")
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:read')")
@@ -35,7 +35,7 @@ public class UmsShopController {
         return new CommonResult().success(umsShopService.listAllShop());
     }
 
-    @ApiOperation(value = "添加品牌")
+    @ApiOperation(value = "添加店铺")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:create')")
@@ -50,7 +50,7 @@ public class UmsShopController {
         return commonResult;
     }
 
-    @ApiOperation(value = "更新品牌")
+    @ApiOperation(value = "更新店铺")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:update')")
@@ -67,7 +67,7 @@ public class UmsShopController {
         return commonResult;
     }
 
-    @ApiOperation(value = "删除品牌")
+    @ApiOperation(value = "删除店铺")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:delete')")
@@ -80,7 +80,7 @@ public class UmsShopController {
         }
     }
 
-    @ApiOperation(value = "根据品牌名称分页获取品牌列表")
+    @ApiOperation(value = "根据参数分页获取品牌列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:read')")
@@ -90,7 +90,7 @@ public class UmsShopController {
         return new CommonResult().pageSuccess(umsShopService.listShop(keyword, pageNum, pageSize));
     }
 
-    @ApiOperation(value = "根据编号查询品牌信息")
+    @ApiOperation(value = "根据编号查询店铺信息")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:read')")
@@ -98,7 +98,7 @@ public class UmsShopController {
         return new CommonResult().success(umsShopService.getShop(id));
     }
 
-    @ApiOperation(value = "批量删除品牌")
+    @ApiOperation(value = "批量删除店铺")
     @RequestMapping(value = "/delete/batch", method = RequestMethod.POST)
     @ResponseBody
     @PreAuthorize("hasAuthority('ums:shop:delete')")

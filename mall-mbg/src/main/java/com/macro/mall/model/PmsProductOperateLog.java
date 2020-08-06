@@ -20,7 +20,7 @@ public class PmsProductOperateLog implements Serializable {
     /**
      * 赠送的积分
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer giftPointOld;
 
@@ -33,7 +33,7 @@ public class PmsProductOperateLog implements Serializable {
     /**
      * 操作人
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String operateMan;
 

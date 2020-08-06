@@ -9,42 +9,42 @@ public class UmsMemberRuleSetting implements Serializable {
     /**
      * 连续签到天数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer continueSignDay;
 
     /**
      * 连续签到赠送数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer continueSignPoint;
 
     /**
      * 每消费多少元获取1个点
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal consumePerPoint;
 
     /**
      * 最低获取点数的订单金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal lowOrderAmount;
 
     /**
      * 每笔订单最高获取点数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer maxPointPerOrder;
 
     /**
      * 类型：0->积分规则；1->成长值规则
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer type;
 

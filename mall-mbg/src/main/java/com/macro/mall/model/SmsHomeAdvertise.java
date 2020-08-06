@@ -11,7 +11,7 @@ public class SmsHomeAdvertise implements Serializable {
     /**
      * 轮播位置：0->PC首页轮播；1->app首页轮播
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer type;
 
@@ -24,42 +24,42 @@ public class SmsHomeAdvertise implements Serializable {
     /**
      * 上下线状态：0->下线；1->上线
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 点击数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer clickCount;
 
     /**
      * 下单数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer orderCount;
 
     /**
      * 链接地址
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String url;
 
     /**
      * 备注
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String note;
 
     /**
      * 排序
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sort;
 

@@ -19,14 +19,14 @@ public class CmsTopic implements Serializable {
     /**
      * 参与人数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer attendCount;
 
     /**
      * 关注人数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer attentionCount;
 
@@ -35,21 +35,21 @@ public class CmsTopic implements Serializable {
     /**
      * 奖品名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String awardName;
 
     /**
      * 参与方式
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String attendType;
 
     /**
      * 话题内容
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String content;
 

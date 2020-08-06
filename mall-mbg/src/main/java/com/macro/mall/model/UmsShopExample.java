@@ -515,6 +515,66 @@ public class UmsShopExample {
             return (Criteria) this;
         }
 
+        public Criteria andOpenIsNull() {
+            addCriterion("open is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIsNotNull() {
+            addCriterion("open is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenEqualTo(Integer value) {
+            addCriterion("open =", value, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenNotEqualTo(Integer value) {
+            addCriterion("open <>", value, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenGreaterThan(Integer value) {
+            addCriterion("open >", value, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenGreaterThanOrEqualTo(Integer value) {
+            addCriterion("open >=", value, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenLessThan(Integer value) {
+            addCriterion("open <", value, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenLessThanOrEqualTo(Integer value) {
+            addCriterion("open <=", value, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIn(List<Integer> values) {
+            addCriterion("open in", values, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenNotIn(List<Integer> values) {
+            addCriterion("open not in", values, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenBetween(Integer value1, Integer value2) {
+            addCriterion("open between", value1, value2, "open");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenNotBetween(Integer value1, Integer value2) {
+            addCriterion("open not between", value1, value2, "open");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;

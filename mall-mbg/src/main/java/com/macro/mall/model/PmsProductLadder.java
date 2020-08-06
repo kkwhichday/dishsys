@@ -11,21 +11,21 @@ public class PmsProductLadder implements Serializable {
     /**
      * 满足的商品数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer count;
 
     /**
      * 折扣
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal discount;
 
     /**
      * 折后价格
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal price;
 

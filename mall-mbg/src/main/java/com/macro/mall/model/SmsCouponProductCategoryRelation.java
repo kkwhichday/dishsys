@@ -12,14 +12,14 @@ public class SmsCouponProductCategoryRelation implements Serializable {
     /**
      * 产品分类名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productCategoryName;
 
     /**
      * 父分类名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String parentCategoryName;
 

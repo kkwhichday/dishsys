@@ -9,63 +9,63 @@ public class UmsPermission implements Serializable {
     /**
      * 父级权限id
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long pid;
 
     /**
      * 名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String name;
 
     /**
      * 权限值
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String value;
 
     /**
      * 图标
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String icon;
 
     /**
      * 权限类型：0->目录；1->菜单；2->按钮（接口绑定权限）
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer type;
 
     /**
      * 前端资源路径
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String uri;
 
     /**
      * 启用状态；0->禁用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 创建时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 
     /**
      * 排序
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sort;
 

@@ -10,182 +10,182 @@ public class OmsOrderReturnApply implements Serializable {
     /**
      * 订单id
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long orderId;
 
     /**
      * 收货地址表id
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long companyAddressId;
 
     /**
      * 退货商品id
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long productId;
 
     /**
      * 订单编号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String orderSn;
 
     /**
      * 申请时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 
     /**
      * 会员用户名
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String memberUsername;
 
     /**
      * 退款金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal returnAmount;
 
     /**
      * 退货人姓名
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String returnName;
 
     /**
      * 退货人电话
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String returnPhone;
 
     /**
      * 申请状态：0->待处理；1->退货中；2->已完成；3->已拒绝
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 处理时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date handleTime;
 
     /**
      * 商品图片
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productPic;
 
     /**
      * 商品名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productName;
 
     /**
      * 商品品牌
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productBrand;
 
     /**
      * 商品销售属性：颜色：红色；尺码：xl;
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productAttr;
 
     /**
      * 退货数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer productCount;
 
     /**
      * 商品单价
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal productPrice;
 
     /**
      * 商品实际支付单价
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal productRealPrice;
 
     /**
      * 原因
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String reason;
 
     /**
      * 描述
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String description;
 
     /**
      * 凭证图片，以逗号隔开
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String proofPics;
 
     /**
      * 处理备注
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String handleNote;
 
     /**
      * 处理人员
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String handleMan;
 
     /**
      * 收货人
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String receiveMan;
 
     /**
      * 收货时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date receiveTime;
 
     /**
      * 收货备注
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String receiveNote;
 

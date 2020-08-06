@@ -9,14 +9,14 @@ public class CmsMemberReport implements Serializable {
     /**
      * 举报类型：0->商品评价；1->话题内容；2->用户评论
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer reportType;
 
     /**
      * 举报人
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String reportMemberName;
 
@@ -27,14 +27,14 @@ public class CmsMemberReport implements Serializable {
     /**
      * 举报状态：0->未处理；1->已处理
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer reportStatus;
 
     /**
      * 处理结果：0->无效；1->有效；2->恶意
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer handleStatus;
 

@@ -17,7 +17,7 @@ public class UmsAdminLoginLog implements Serializable {
     /**
      * 浏览器登录类型
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String userAgent;
 

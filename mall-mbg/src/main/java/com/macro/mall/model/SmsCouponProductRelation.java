@@ -12,14 +12,14 @@ public class SmsCouponProductRelation implements Serializable {
     /**
      * 商品名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productName;
 
     /**
      * 商品编码
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productSn;
 

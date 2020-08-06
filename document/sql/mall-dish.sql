@@ -1195,14 +1195,15 @@ CREATE TABLE `ums_shop` (
   `info` varchar(200) DEFAULT NULL COMMENT '店铺介绍',
   `notice` varchar(300) DEFAULT NULL COMMENT '店铺公告',
   `email` varchar(100) DEFAULT NULL COMMENT '邮箱',
+  `open` int(1) DEFAULT '1' COMMENT '店铺是否开业：0->停业；1->开业',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `status` int(1) DEFAULT '1' COMMENT '店铺状态：0->禁用；1->启用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='店铺信息表';
 
 
-INSERT INTO `ums_shop` VALUES('1','高老庄多伦多店','https://sell-shop.oss-cn-beijing.aliyuncs.com/dish/images/1shop1admin/20190626/高老庄多伦多店.jpeg','高老庄多伦多店',' ','shop@shop.com','2018-09-29 13:55:30','1');
-INSERT INTO `ums_shop` VALUES('2','高老庄密市店','https://sell-shop.oss-cn-beijing.aliyuncs.com/dish/images/2shop2admin/20190626/高老庄密市店.jpeg','高老庄密市店',' ','shop@shop.com','2018-09-29 13:55:30','1');
+INSERT INTO `ums_shop` VALUES('1','高老庄多伦多店','https://sell-shop.oss-cn-beijing.aliyuncs.com/dish/images/1shop1admin/20190626/高老庄多伦多店.jpeg','高老庄多伦多店',' ','shop@shop.com',1,'2018-09-29 13:55:30','1');
+INSERT INTO `ums_shop` VALUES('2','高老庄密市店','https://sell-shop.oss-cn-beijing.aliyuncs.com/dish/images/2shop2admin/20190626/高老庄密市店.jpeg','高老庄密市店',' ','shop@shop.com',1,'2018-09-29 13:55:30','1');
 
 -- ----------------------------
 -- Table structure for ums_admin_login_log
@@ -1562,16 +1563,16 @@ INSERT INTO `ums_permission` VALUES ('1', '0', '商品', null, null, '0', null, 
 INSERT INTO `ums_permission` VALUES ('2', '1', '商品列表', 'pms:product:read', null, '1', '/pms/product/index', '1', '2018-09-29 16:17:01', '0');
 INSERT INTO `ums_permission` VALUES ('3', '1', '添加商品', 'pms:product:create', null, '1', '/pms/product/add', '1', '2018-09-29 16:18:51', '0');
 INSERT INTO `ums_permission` VALUES ('4', '1', '商品分类', 'pms:productCategory:read', null, '1', '/pms/productCate/index', '1', '2018-09-29 16:23:07', '0');
-INSERT INTO `ums_permission` VALUES ('5', '1', '商品类型', 'pms:productAttribute:read', null, '1', '/pms/productAttr/index', '1', '2018-09-29 16:24:43', '0');
+INSERT INTO `ums_permission` VALUES ('5', '1', '商品属性', 'pms:productAttribute:read', null, '1', '/pms/productAttr/index', '1', '2018-09-29 16:24:43', '0');
 INSERT INTO `ums_permission` VALUES ('6', '1', '店铺管理', 'ums:shop:read', null, '1', '/ums/shop/index', '1', '2018-09-29 16:25:45', '0');
 INSERT INTO `ums_permission` VALUES ('7', '2', '编辑商品', 'pms:product:update', null, '2', '/pms/product/updateProduct', '1', '2018-09-29 16:34:23', '0');
 INSERT INTO `ums_permission` VALUES ('8', '2', '删除商品', 'pms:product:delete', null, '2', '/pms/product/delete', '1', '2018-09-29 16:38:33', '0');
 INSERT INTO `ums_permission` VALUES ('9', '4', '添加商品分类', 'pms:productCategory:create', null, '2', '/pms/productCate/create', '1', '2018-09-29 16:43:23', '0');
 INSERT INTO `ums_permission` VALUES ('10', '4', '修改商品分类', 'pms:productCategory:update', null, '2', '/pms/productCate/update', '1', '2018-09-29 16:43:55', '0');
 INSERT INTO `ums_permission` VALUES ('11', '4', '删除商品分类', 'pms:productCategory:delete', null, '2', '/pms/productAttr/delete', '1', '2018-09-29 16:44:38', '0');
-INSERT INTO `ums_permission` VALUES ('12', '5', '添加商品类型', 'pms:productAttribute:create', null, '2', '/pms/productAttr/create', '1', '2018-09-29 16:45:25', '0');
-INSERT INTO `ums_permission` VALUES ('13', '5', '修改商品类型', 'pms:productAttribute:update', null, '2', '/pms/productAttr/update', '1', '2018-09-29 16:48:08', '0');
-INSERT INTO `ums_permission` VALUES ('14', '5', '删除商品类型', 'pms:productAttribute:delete', null, '2', '/pms/productAttr/delete', '1', '2018-09-29 16:48:44', '0');
+INSERT INTO `ums_permission` VALUES ('12', '5', '添加商品属性', 'pms:productAttribute:create', null, '2', '/pms/productAttr/create', '1', '2018-09-29 16:45:25', '0');
+INSERT INTO `ums_permission` VALUES ('13', '5', '修改商品属性', 'pms:productAttribute:update', null, '2', '/pms/productAttr/update', '1', '2018-09-29 16:48:08', '0');
+INSERT INTO `ums_permission` VALUES ('14', '5', '删除商品属性', 'pms:productAttribute:delete', null, '2', '/pms/productAttr/delete', '1', '2018-09-29 16:48:44', '0');
 INSERT INTO `ums_permission` VALUES ('15', '6', '添加店铺', 'ums:shop:create', null, '2', '/ums/shop/add', '1', '2018-09-29 16:49:34', '0');
 INSERT INTO `ums_permission` VALUES ('16', '6', '修改店铺', 'ums:shop:update', null, '2', '/ums/shop/update', '1', '2018-09-29 16:50:55', '0');
 INSERT INTO `ums_permission` VALUES ('17', '6', '删除店铺', 'ums:shop:delete', null, '2', '/ums/shop/delete', '1', '2018-09-29 16:50:59', '0');
@@ -1597,9 +1598,9 @@ CREATE TABLE `ums_role` (
 -- ----------------------------
 INSERT INTO `ums_role` VALUES ('1', '商品管理员', '商品管理员', '0', '2018-09-30 15:46:11', '1', '0');
 INSERT INTO `ums_role` VALUES ('2', '商品分类管理员', '商品分类管理员', '0', '2018-09-30 15:53:45', '1', '0');
-INSERT INTO `ums_role` VALUES ('3', '商品类型管理员', '商品类型管理员', '0', '2018-09-30 15:53:56', '1', '0');
+INSERT INTO `ums_role` VALUES ('3', '商品属性管理员', '商品属性管理员', '0', '2018-09-30 15:53:56', '1', '0');
 INSERT INTO `ums_role` VALUES ('4', '店铺超级管理员', '店铺管理员', '0', '2018-09-30 15:54:12', '1', '0');
-INSERT INTO `ums_role` VALUES ('5', '店主', '店主', '0', '2018-09-30 15:54:12', '1', '0');
+INSERT INTO `ums_role` VALUES ('5', '店员', '店员', '0', '2018-09-30 15:54:12', '1', '0');
 
 -- ----------------------------
 -- Table structure for ums_role_permission_relation

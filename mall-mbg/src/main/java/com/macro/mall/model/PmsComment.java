@@ -15,14 +15,14 @@ public class PmsComment implements Serializable {
     /**
      * 评价星数：0->5
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer star;
 
     /**
      * 评价的ip
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String memberIp;
 
@@ -33,7 +33,7 @@ public class PmsComment implements Serializable {
     /**
      * 购买时的商品属性
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productAttribute;
 
@@ -44,14 +44,14 @@ public class PmsComment implements Serializable {
     /**
      * 上传图片地址，以逗号隔开
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String pics;
 
     /**
      * 评论用户头像
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String memberIcon;
 

@@ -8,7 +8,7 @@ public class PmsProductCategory implements Serializable {
     /**
      * 上机分类的编号：0表示一级分类
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long parentId;
 
@@ -17,7 +17,7 @@ public class PmsProductCategory implements Serializable {
     /**
      * 分类级别：0->1级；1->2级
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer level;
 
@@ -28,14 +28,14 @@ public class PmsProductCategory implements Serializable {
     /**
      * 是否显示在导航栏：0->不显示；1->显示
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer navStatus;
 
     /**
      * 显示状态：0->不显示；1->显示
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer showStatus;
 
@@ -44,7 +44,7 @@ public class PmsProductCategory implements Serializable {
     /**
      * 图标
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String icon;
 
@@ -53,14 +53,14 @@ public class PmsProductCategory implements Serializable {
     /**
      * 店铺账号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long umsShopId;
 
     /**
      * 描述
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String description;
 

@@ -13,7 +13,7 @@ public class PmsMemberPrice implements Serializable {
     /**
      * 会员价格
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal memberPrice;
 

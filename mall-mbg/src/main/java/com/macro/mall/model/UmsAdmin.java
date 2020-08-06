@@ -13,49 +13,49 @@ public class UmsAdmin implements Serializable {
     /**
      * 头像
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String icon;
 
     /**
      * 邮箱
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String email;
 
     /**
      * 昵称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String nickName;
 
     /**
      * 备注信息
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String note;
 
     /**
      * 创建时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 
     /**
      * 最后登录时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date loginTime;
 
     /**
      * 帐号启用状态：0->禁用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 

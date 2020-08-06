@@ -1,18 +1,24 @@
 package com.macro.mall.portal.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayConfig;
 import com.github.wxpay.sdk.WXPayConstants;
 import com.github.wxpay.sdk.WXPayUtil;
+import com.google.gson.JsonObject;
 import com.macro.mall.portal.domain.CommonResult;
+import com.macro.mall.portal.domain.OttPayConfig;
 import com.macro.mall.portal.service.OmsPortalOrderService;
 import com.macro.mall.portal.service.RedisService;
 import com.macro.mall.portal.service.WxPayService;
+import com.macro.mall.portal.util.AppCommonUtils;
+import com.macro.mall.portal.util.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,8 +39,15 @@ public class WxPayServiceImpl implements WxPayService{
     @Value("${weixinpay.callback.url}")
     String payCallbackUrl;
 
+
+    @Autowired
+    OttPayConfig ottPayConfig;
+
     @Autowired
     RedisService redisService;
+
+    @Autowired
+    HttpUtil httpUtil;
 
     /**
      *  支付结果通知
@@ -156,6 +169,72 @@ public class WxPayServiceImpl implements WxPayService{
     }
 
 
+    @Override
+    public Map<String, String> dounifiedOrderOtt( String out_trade_no,String total_fee) throws Exception {
+        Map<String, String> fail = new HashMap<>();
+
+
+        Map<String, String> data = new HashMap<String, String>();
+        data.put("userid", wxPayConfig.getAppID());
+        data.put("merchant_id", wxPayConfig.getMchID());
+
+        data.put("amount", total_fee);
+
+        //异步通知地址（请注意必须是外网）
+        data.put("call_back_url", payCallbackUrl);
+
+        data.put("bizType", "WECHATPAY");
+        data.put("operator_id", ottPayConfig.getOttOperatorId());
+
+
+        JsonObject jsonData = new JsonObject();
+        jsonData.addProperty("userId", wxPayConfig.getAppID());
+        jsonData.addProperty("amount", total_fee);
+        jsonData.addProperty("bizType", "WECHATPAY");
+//        jsonData.addProperty("merCode", "");
+        jsonData.addProperty("merchant_id", wxPayConfig.getMchID());
+//        jsonData.addProperty("shopId", "");
+        jsonData.addProperty("operator_id", ottPayConfig.getOttOperatorId());
+//        jsonData.addProperty("tip", "");
+        jsonData.addProperty("call_back_url",payCallbackUrl);
+        String entity = jsonData.toString();
+        byte[] buf = httpUtil.httpPost(ottPayConfig.getOttPayUrl(),entity);
+        if (buf != null && buf.length > 0) {
+
+            try {
+                String content = new String(buf);
+                System.out.println("content====" + content);
+                Map<String,String> resp = (Map<String,String>) JSON.parse(content);
+                //获取预支付交易回话标志
+//                Map<String,String> map = new HashMap<>();
+//                String prepay_id = resp.get("prepay_id");
+//                String signType = "MD5";
+//                map.put("prepay_id",prepay_id);
+//                map.put("signType",signType);
+//                map.put("tradeNo", out_trade_no);
+//                String sign = WXPayUtil.generateSignature(map,wxPayConfig.getKey(), WXPayConstants.SignType.MD5);
+//                resp.put("realsign",sign);
+
+
+
+                LOGGER.error("resp===="+resp+" orderno="+out_trade_no);
+                String tradeNo = resp.get("tradeNo");//交易号和订单号绑定
+                if(!StringUtils.isEmpty(tradeNo)){
+                    redisService.set(tradeNo+"_TRANX_ORDER",out_trade_no);
+                    redisService.expire(tradeNo,24*3600);
+                }
+
+                return resp;
+            }catch (Exception ex){
+                LOGGER.error("dounifiedOrderOtt", "Get prepay order error..."+ex.getMessage());
+
+            }
+        }
+
+        return fail;
+    }
+
+
     /**
      * 申请退款
      *
@@ -199,5 +278,84 @@ public class WxPayServiceImpl implements WxPayService{
             resultReturn = return_msg;
         }
         return new CommonResult().failed(resultReturn);
+    }
+
+
+    /**
+     *  支付结果通知
+     * @param notifyData    异步通知后的XML数据
+     * @return
+     */
+    @Override
+    public String payBackOtt(String notifyData) {
+
+        Map<String,String> resp = (Map<String,String>) JSON.parse(notifyData);
+
+        String xmlBack="";
+        Map<String, String> notifyMap = null;
+        try {
+            notifyMap =  (Map<String,String>) JSON.parse(notifyData);         // 转换成map
+
+
+            if (notifyMap!=null) {
+                // 签名正确
+                // 进行处理。
+                // 注意特殊情况：订单已经退款，但收到了支付结果成功的通知，不应把商户侧订单状态从退款改成支付成功
+                String  return_code = notifyMap.get("rsp_code");//状态
+
+
+                if(return_code.equals("SUCCESS")){
+
+                    String ens= notifyMap.get("data");
+                    String md5=notifyMap.get("md5");
+                    String data =AppCommonUtils.decipher(
+                            ens,ottPayConfig.getSignkey(),md5);
+                    Map<String,String> dataMap =  (Map<String,String>) JSON.parse(data);
+                    String tradeNo = dataMap.get("order_id");//订单号
+                    String orderNo= redisService.get(tradeNo+"_TRANX_ORDER");
+
+                    if(!StringUtils.isEmpty(orderNo)){
+//                    if(out_trade_no!=null){
+                        //处理订单逻辑
+                        /**
+                         *          更新数据库中支付状态。
+                         *          特殊情况：订单已经退款，但收到了支付结果成功的通知，不应把商户侧订单状态从退款改成支付成功。
+                         *          此处需要判断一下。后面写入库操作的时候再写
+                         *
+                         */
+
+                        CommonResult commonResult = omsPortalOrderService
+                                .paySuccess(orderNo);
+                        if(commonResult.getCode()==CommonResult.SUCCESS){
+                            String transKey = orderNo+"_weixin_transactionid";
+                            redisService.set(transKey,orderNo);
+                            redisService.expire(transKey,24*3600);
+                            System.err.println(">>>>>支付成功");
+
+                            LOGGER.info("微信手机支付回调成功订单号:{}",orderNo);
+                            xmlBack = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>" + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
+                        }else{
+                            LOGGER.info("微信手机支付回调失败订单号:{}",orderNo);
+                            xmlBack = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>" + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml> ";
+                        }
+                    }else {
+                        LOGGER.info("微信手机支付回调失败订单号:{}",orderNo);
+                        xmlBack = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>" + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml> ";
+                    }
+
+                }
+                return xmlBack;
+            }
+            else {
+                // 签名错误，如果数据里没有sign字段，也认为是签名错误
+                LOGGER.error("手机支付回调通知签名错误");
+                xmlBack = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>" + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml> ";
+                return xmlBack;
+            }
+        } catch (Exception e) {
+            LOGGER.error("手机支付回调通知失败",e);
+            xmlBack = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>" + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml> ";
+        }
+        return xmlBack;
     }
 }

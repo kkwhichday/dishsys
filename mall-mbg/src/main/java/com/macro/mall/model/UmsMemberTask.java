@@ -10,21 +10,21 @@ public class UmsMemberTask implements Serializable {
     /**
      * 赠送成长值
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer growth;
 
     /**
      * 赠送积分
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer intergration;
 
     /**
      * 任务类型：0->新手任务；1->日常任务
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer type;
 

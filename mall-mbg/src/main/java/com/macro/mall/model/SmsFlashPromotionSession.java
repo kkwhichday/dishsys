@@ -7,42 +7,42 @@ public class SmsFlashPromotionSession implements Serializable {
     /**
      * 编号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long id;
 
     /**
      * 场次名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String name;
 
     /**
      * 每日开始时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date startTime;
 
     /**
      * 每日结束时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date endTime;
 
     /**
      * 启用状态：0->不启用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 创建时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 

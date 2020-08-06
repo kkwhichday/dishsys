@@ -1,4 +1,4 @@
-package com.ottapppay.driver.util;
+package com.macro.mall.portal.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -14,10 +14,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.TreeMap;
+import static com.macro.mall.portal.util.AppCommonUtils.gson;
 
-import static com.ottapppay.driver.util.AppCommonUtils.gson;
 
-public class MD5Util {
+public class   MD5Util {
 
     private static char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 

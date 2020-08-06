@@ -4,15 +4,20 @@ import com.macro.mall.cluster.redis.IRedisSessionService;
 import com.macro.mall.dto.CommonResult;
 import com.macro.mall.dto.UmsAdminLoginParam;
 import com.macro.mall.dto.UmsAdminParam;
+import com.macro.mall.dto.UpdUmsAdminParam;
 import com.macro.mall.model.UmsAdmin;
 import com.macro.mall.model.UmsPermission;
 import com.macro.mall.model.UmsRole;
 import com.macro.mall.service.UmsAdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +43,8 @@ public class UmsAdminController {
     @Value("${jwt.tokenHead}")
     private String tokenHead;
 
+    @Autowired
+    private  PasswordEncoder ENCODER;
     @Autowired
     private IRedisSessionService redisSessionService;
 
@@ -93,6 +100,7 @@ public class UmsAdminController {
         data.put("roles", new String[]{"TEST"});
         data.put("icon", umsAdmin.getIcon());
         data.put("umsShopId", umsAdmin.getShopId());
+        data.put("id",umsAdmin.getId());
         return new CommonResult().success(data);
     }
 
@@ -118,13 +126,35 @@ public class UmsAdminController {
     @ResponseBody
     public Object getItem(@PathVariable Long id){
         UmsAdmin admin = adminService.getItem(id);
+        admin.setPassword(null);
         return new CommonResult().success(admin);
     }
 
     @ApiOperation("修改指定用户信息")
     @RequestMapping(value = "/update/{id}",method = RequestMethod.POST)
     @ResponseBody
-    public Object update(@PathVariable Long id,@RequestBody UmsAdmin admin){
+    public Object update(@PathVariable Long id,@RequestBody UpdUmsAdminParam admin){
+
+
+        UmsAdmin newAdmin = adminService.getAdminByUsername(admin.getUsername());
+
+        UmsAdmin oldAdmin = adminService.getItem(id);
+        if(newAdmin!=null && !newAdmin.getUsername().equals(oldAdmin.getUsername())){
+            return new CommonResult().validateFailed("该用户名已经存在");
+        }
+        if(StringUtils.isEmpty(admin.getPassword())
+                || !ENCODER.matches(admin.getPassword(),oldAdmin.getPassword())){
+            return new CommonResult().validateFailed("原始密码输入错误");
+        }
+        if(!StringUtils.isEmpty(admin.getNewPassword())){//密码发生变更
+
+            admin.setPassword(ENCODER.encode(admin.getNewPassword()));
+        }else{
+
+            admin.setPassword(oldAdmin.getPassword());//无需更新密码
+        }
+
+
         int count = adminService.update(id,admin);
         if(count>0){
             return new CommonResult().success(count);

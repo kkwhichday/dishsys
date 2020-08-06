@@ -8,28 +8,28 @@ public class UmsIntegrationConsumeSetting implements Serializable {
     /**
      * 每一元需要抵扣的积分数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer deductionPerAmount;
 
     /**
      * 每笔订单最高抵用百分比
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer maxPercentPerOrder;
 
     /**
      * 每次使用积分最小单位100
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer useUnit;
 
     /**
      * 是否可以和优惠券同用；0->不可以；1->可以
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer couponStatus;
 

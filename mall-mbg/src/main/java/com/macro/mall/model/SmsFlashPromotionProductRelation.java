@@ -7,7 +7,7 @@ public class SmsFlashPromotionProductRelation implements Serializable {
     /**
      * 编号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long id;
 
@@ -16,7 +16,7 @@ public class SmsFlashPromotionProductRelation implements Serializable {
     /**
      * 编号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long flashPromotionSessionId;
 
@@ -25,28 +25,28 @@ public class SmsFlashPromotionProductRelation implements Serializable {
     /**
      * 限时购价格
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal flashPromotionPrice;
 
     /**
      * 限时购数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer flashPromotionCount;
 
     /**
      * 每人限购数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer flashPromotionLimit;
 
     /**
      * 排序
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sort;
 

@@ -2,7 +2,7 @@
  * Copyright: Copyright (c)2011
  * Company: 支付通(ICardPay)
  */
-package com.ottapppay.driver.util;
+package com.macro.mall.portal.util;
 
 
 import java.io.UnsupportedEncodingException;

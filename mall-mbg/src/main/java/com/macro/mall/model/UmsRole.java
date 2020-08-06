@@ -9,35 +9,35 @@ public class UmsRole implements Serializable {
     /**
      * 名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String name;
 
     /**
      * 描述
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String description;
 
     /**
      * 后台用户数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer adminCount;
 
     /**
      * 创建时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 
     /**
      * 启用状态：0->禁用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 

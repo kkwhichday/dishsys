@@ -13,35 +13,35 @@ public class UmsIntegrationChangeHistory implements Serializable {
     /**
      * 改变类型：0->增加；1->减少
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer changeType;
 
     /**
      * 积分改变数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer changeCount;
 
     /**
      * 操作人员
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String operateMan;
 
     /**
      * 操作备注
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String operateNote;
 
     /**
      * 积分来源：0->购物；1->管理员修改
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sourceType;
 

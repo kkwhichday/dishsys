@@ -8,6 +8,7 @@
     <result column="info" jdbcType="VARCHAR" property="info" />
     <result column="notice" jdbcType="VARCHAR" property="notice" />
     <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="open" jdbcType="INTEGER" property="open" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, pic, info, notice, email, create_time, status
+    id, name, pic, info, notice, email, open, create_time, status
   </sql>
   <select id="selectByExample" parameterType="com.macro.mall.model.UmsShopExample" resultMap="BaseResultMap">
     select
@@ -107,11 +108,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into ums_shop (name, pic, info, 
-      notice, email, create_time, 
-      status)
+      notice, email, open, 
+      create_time, status)
     values (#{name,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
-      #{notice,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=INTEGER})
+      #{notice,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{open,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.macro.mall.model.UmsShop">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -133,6 +134,9 @@
       </if>
       <if test="email != null">
         email,
+      </if>
+      <if test="open != null">
+        open,
       </if>
       <if test="createTime != null">
         create_time,
@@ -157,6 +161,9 @@
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
       </if>
+      <if test="open != null">
+        #{open,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -165,7 +172,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.macro.mall.model.UmsShopExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.macro.mall.model.UmsShopExample" resultType="java.lang.Long">
     select count(*) from ums_shop
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -192,6 +199,9 @@
       <if test="record.email != null">
         email = #{record.email,jdbcType=VARCHAR},
       </if>
+      <if test="record.open != null">
+        open = #{record.open,jdbcType=INTEGER},
+      </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -211,6 +221,7 @@
       info = #{record.info,jdbcType=VARCHAR},
       notice = #{record.notice,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
+      open = #{record.open,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
@@ -235,6 +246,9 @@
       <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
       </if>
+      <if test="open != null">
+        open = #{open,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -251,6 +265,7 @@
       info = #{info,jdbcType=VARCHAR},
       notice = #{notice,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
+      open = #{open,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}

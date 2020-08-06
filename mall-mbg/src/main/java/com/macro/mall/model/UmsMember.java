@@ -11,119 +11,119 @@ public class UmsMember implements Serializable {
     /**
      * 用户名
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String username;
 
     /**
      * 密码
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String password;
 
     /**
      * 昵称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String nickname;
 
     /**
      * 手机号码
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String phone;
 
     /**
      * 帐号启用状态:0->禁用；1->启用
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer status;
 
     /**
      * 注册时间
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date createTime;
 
     /**
      * 头像
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String icon;
 
     /**
      * 性别：0->未知；1->男；2->女
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer gender;
 
     /**
      * 生日
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Date birthday;
 
     /**
      * 所做城市
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String city;
 
     /**
      * 职业
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String job;
 
     /**
      * 个性签名
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String personalizedSignature;
 
     /**
      * 用户来源
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sourceType;
 
     /**
      * 积分
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer integration;
 
     /**
      * 成长值
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer growth;
 
     /**
      * 剩余抽奖次数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer luckeyCount;
 
     /**
      * 历史积分数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer historyIntegration;
 

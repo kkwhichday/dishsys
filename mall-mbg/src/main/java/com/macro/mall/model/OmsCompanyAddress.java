@@ -8,63 +8,63 @@ public class OmsCompanyAddress implements Serializable {
     /**
      * 地址名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String addressName;
 
     /**
      * 默认发货地址：0->否；1->是
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer sendStatus;
 
     /**
      * 是否默认收货地址：0->否；1->是
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer receiveStatus;
 
     /**
      * 收发货人姓名
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String name;
 
     /**
      * 收货人电话
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String phone;
 
     /**
      * 省/直辖市
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String province;
 
     /**
      * 市
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String city;
 
     /**
      * 区
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String region;
 
     /**
      * 详细地址
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String detailAddress;
 

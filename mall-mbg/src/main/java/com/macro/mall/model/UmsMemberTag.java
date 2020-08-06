@@ -11,14 +11,14 @@ public class UmsMemberTag implements Serializable {
     /**
      * 自动打标签完成订单数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer finishOrderCount;
 
     /**
      * 自动打标签完成订单金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal finishOrderAmount;
 

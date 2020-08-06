@@ -1,6 +1,6 @@
-package com.ottapppay.driver.util;
+package com.macro.mall.portal.util;
 
-import android.text.TextUtils;
+
 
 import java.lang.reflect.Array;
 import java.util.Collection;
@@ -18,27 +18,7 @@ public class CheckUtils {
 
     public static final String COMMON_FIELD = "flowID,initiator,";
 
-    /**
-     * 验证字符串是否为空串
-     *
-     * @param strs       字符串数组
-     * @param checkNames
-     */
-    public static void valueIsEmpty(String[] strs, String... checkNames) {
-        StringBuffer buffer = new StringBuffer();
-        if (strs.length != checkNames.length)
-            throw new IllegalArgumentException(
-                    "strs's length is not equlas checkNames's length");
-        for (int i = 0; i < strs.length; i++) {
-            if (TextUtils.isEmpty(strs[i])) {
-                buffer.append(checkNames[i]).append(",");
-            }
-        }
-        if (buffer.toString().endsWith(",")) {
-            buffer.append(" must be specified");
-            throw new IllegalArgumentException(buffer.toString());
-        }
-    }
+
 
 
     /**

@@ -13,14 +13,14 @@ public class CmsSubject implements Serializable {
     /**
      * 专题主图
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String pic;
 
     /**
      * 关联产品数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer productCount;
 
@@ -37,7 +37,7 @@ public class CmsSubject implements Serializable {
     /**
      * 画册图片用逗号分割
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String albumPics;
 
@@ -46,21 +46,21 @@ public class CmsSubject implements Serializable {
     /**
      * 显示状态：0->不显示；1->显示
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer showStatus;
 
     /**
      * 转发数
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer forwardCount;
 
     /**
      * 专题分类名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String categoryName;
 

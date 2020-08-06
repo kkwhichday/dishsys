@@ -19,7 +19,7 @@ public class PmsCommentReplay implements Serializable {
     /**
      * 评论人员类型；0->会员；1->管理员
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer type;
 

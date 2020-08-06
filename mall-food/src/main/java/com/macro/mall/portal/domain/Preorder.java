@@ -3,7 +3,7 @@ package com.macro.mall.portal.domain;
 import lombok.Data;
 
 @Data
-public class preorder {
+public class Preorder {
 
     /**
     {"appId":"wx4280bdcc078ecd98", "bizType":"WECHATPAY",

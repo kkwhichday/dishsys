@@ -17,7 +17,7 @@ public class UmsMemberLoginLog implements Serializable {
     /**
      * 登录类型：0->PC；1->android;2->ios;3->小程序
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer loginType;
 

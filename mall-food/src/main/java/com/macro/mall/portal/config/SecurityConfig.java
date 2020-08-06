@@ -64,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/sso/*",//登录注册
                         "/home/**",//首页接口
                         "/thirdpay/notify/**"//微信支付回调
+                        //"/thirdpay/payott/**"//微信支付回调
                 ).permitAll()
                 .anyRequest()// 除上面外的所有请求全部需要鉴权认证
                 .authenticated()

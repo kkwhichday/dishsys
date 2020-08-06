@@ -13,7 +13,7 @@ public class PmsProductVertifyRecord implements Serializable {
     /**
      * 审核人
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String vertifyMan;
 
@@ -22,7 +22,7 @@ public class PmsProductVertifyRecord implements Serializable {
     /**
      * 反馈详情
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String detail;
 

@@ -9,14 +9,14 @@ public class OmsOrderItem implements Serializable {
     /**
      * 订单id
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long orderId;
 
     /**
      * 订单编号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String orderSn;
 
@@ -33,42 +33,42 @@ public class OmsOrderItem implements Serializable {
     /**
      * 销售价格
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal productPrice;
 
     /**
      * 购买数量
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer productQuantity;
 
     /**
      * 商品sku编号
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long productSkuId;
 
     /**
      * 商品sku条码
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productSkuCode;
 
     /**
      * 商品分类id
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Long productCategoryId;
 
     /**
      * 商品的销售属性
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String sp1;
 
@@ -79,35 +79,35 @@ public class OmsOrderItem implements Serializable {
     /**
      * 商品促销名称
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String promotionName;
 
     /**
      * 商品促销分解金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal promotionAmount;
 
     /**
      * 优惠券优惠分解金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal couponAmount;
 
     /**
      * 积分优惠分解金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal integrationAmount;
 
     /**
      * 该商品经过优惠后的分解金额
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal realAmount;
 
@@ -118,7 +118,7 @@ public class OmsOrderItem implements Serializable {
     /**
      * 商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private String productAttr;
 

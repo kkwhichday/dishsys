@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.Min;
 
 /**
- * 品牌传递参数
+ * 店铺传递参数
  * Created by macro on 2018/4/26.
  */
 public class UmsShopParam {
@@ -29,6 +29,19 @@ public class UmsShopParam {
 
     @ApiModelProperty(value = "店铺邮箱")
     private String email;
+
+
+
+    @ApiModelProperty(value = "店铺是否营业")
+    private Integer open;
+
+    public Integer getOpen() {
+        return open;
+    }
+
+    public void setOpen(Integer open) {
+        this.open = open;
+    }
 
     public String getName() {
         return name;

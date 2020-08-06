@@ -1,4 +1,4 @@
-package com.ottapppay.driver.util;
+package com.macro.mall.portal.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

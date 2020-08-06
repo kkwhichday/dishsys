@@ -16,7 +16,7 @@ public class CmsPrefrenceArea implements Serializable {
     /**
      * 展示图片
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private byte[] pic;
 

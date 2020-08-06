@@ -13,63 +13,63 @@ public class UmsMemberLevel implements Serializable {
     /**
      * 是否为默认等级：0->不是；1->是
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer defaultStatus;
 
     /**
      * 免运费标准
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private BigDecimal freeFreightPoint;
 
     /**
      * 每次评价获取的成长值
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer commentGrowthPoint;
 
     /**
      * 是否有免邮特权
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer priviledgeFreeFreight;
 
     /**
      * 是否有签到特权
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer priviledgeSignIn;
 
     /**
      * 是否有评论获奖励特权
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer priviledgeComment;
 
     /**
      * 是否有专享活动特权
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer priviledgePromotion;
 
     /**
      * 是否有会员价格特权
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer priviledgeMemberPrice;
 
     /**
      * 是否有生日特权
      *
-     * @mbggenerated
+     * @mbg.generated
      */
     private Integer priviledgeBirthday;
 

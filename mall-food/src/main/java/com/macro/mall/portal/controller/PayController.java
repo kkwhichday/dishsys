@@ -55,8 +55,12 @@ public class PayController {
 //        String spbill_create_ip= InetAddress.getLocalHost().getHostAddress();
         LOGGER.info("ip地址:{}",spbill_create_ip);
 
+        //wxpay
         Map<String,String> result = wxPayService.dounifiedOrder(out_trade_no,total_fee,spbill_create_ip);
         String nonce_str = result.get("nonce_str");
+
+
+
         String prepay_id = result.get("prepay_id");
         Long time =System.currentTimeMillis()/1000;
         String timestamp=time.toString();
@@ -64,7 +68,8 @@ public class PayController {
         //签名生成算法
         Map<String,String> map = new HashMap<>();
         map.put("appid",wxPayConfig.getAppID());
-        map.put("partnerid",wxPayConfig.getMchID());
+        map.put("partnerid",wxPayConfig.getMchID());//ott标签修改;
+
         map.put("package","Sign=WXPay");
         map.put("noncestr",nonce_str);
         map.put("timestamp",timestamp);
@@ -81,6 +86,8 @@ public class PayController {
         return map;    //给前端app返回此字符串，再调用前端的微信sdk引起微信支付
 
     }
+
+
 
     /**
      * 订单支付异步通知
@@ -100,7 +107,8 @@ public class PayController {
             String line = null;
             try {
                 while ((line = reader.readLine()) != null) {
-                    sb.append(line + "\n");
+//                    sb.append(line + "\n");
+                    sb.append(line );
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -113,8 +121,8 @@ public class PayController {
             }
             resXml=sb.toString();
             System.err.println(resXml);
-            String result = wxPayService.payBack(resXml);
-//            return "<xml><return_code><![CDATA[SUCCESS]]></return_code> <return_msg><![CDATA[OK]]></return_msg></xml>";
+//            String result = wxPayService.payBack(resXml);
+            String result = wxPayService.payBackOtt(resXml);
             return result;
         }catch (Exception e){
             LOGGER.error("手机支付回调通知失败",e);
@@ -150,4 +158,60 @@ public class PayController {
        return wxPayService.refund(data);
 
     }
+
+
+
+
+    @ApiOperation("开启支付")
+    @RequestMapping(value = "/payott", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public Object orderPayOtt(@RequestParam(required = true,value = "out_trade_no")String out_trade_no,
+                           @RequestParam(required = true,value = "total_fee")String total_fee,
+                           HttpServletRequest req, HttpServletResponse response) throws Exception {
+        System.err.println("进入Ott支付申请");
+
+
+
+        //wxpay
+        /*Map<String,String> result = wxPayService.dounifiedOrder(out_trade_no,total_fee,spbill_create_ip);
+        String nonce_str = result.get("nonce_str");
+        */
+
+
+        //ottpay
+        Map<String,String> result = wxPayService.dounifiedOrderOtt(out_trade_no,total_fee);
+        String nonce_str = result.get("nonceStr");//ott标签修改
+
+        String prepay_id = result.get("prepay_id");
+
+        String wxapikey = result.get("wxapikey");
+        Long time =System.currentTimeMillis()/1000;
+        String timestamp=time.toString();
+
+        //签名生成算法
+        Map<String,String> map = new HashMap<>();
+        map.put("appid",wxPayConfig.getAppID());
+//        map.put("partnerid",wxPayConfig.getMchID());//ott标签修改
+        map.put("partnerid",result.get("partnerId"));
+
+        map.put("package","Sign=WXPay");
+        map.put("noncestr",nonce_str);
+        map.put("timestamp",timestamp);
+        map.put("prepayid",prepay_id);
+//        String sign = WXPayUtil.generateSignature(map,wxPayConfig.getKey(), WXPayConstants.SignType.MD5);
+
+        //ott获取微信apikey
+        String sign = WXPayUtil.generateSignature(map,wxapikey, WXPayConstants.SignType.MD5);
+        map.put("sign",sign);
+        String resultString="{\"appid\":\""+wxPayConfig.getAppID()+"\",\"partnerid\":\""+wxPayConfig.getMchID()+"\",\"package\":\"Sign=WXPay\"," +
+                "\"noncestr\":\""+nonce_str+"\",\"timestamp\":"+timestamp+"," +
+                "\"prepayid\":\""+prepay_id+"\",\"sign\":\""+sign+"\"}";
+        System.err.println(resultString+"  wxpaikey===="+wxapikey);
+
+        return map;    //给前端app返回此字符串，再调用前端的微信sdk引起微信支付
+
+    }
+
+
+
 }
